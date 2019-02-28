@@ -1,0 +1,47 @@
+body{
+    margin:0;
+    padding:0;
+    overflow: hidden;
+}
+canvas{
+    display: block;
+    background: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+.icon {
+    width: 1.5em; height: 1.5em;
+    vertical-align: -0.15em;
+    fill: currentColor;
+    overflow: hidden;
+    margin: 10px;
+}
+.actions{
+    position: fixed;
+    top: 5px;
+    left: 5px;
+}
+.color{
+    display: block;
+    height: 2em;
+    width: 2em;
+    margin: 10px;
+    border-radius: 50%;
+}
+#blue{
+    background-color: blue;
+}
+#red{
+    background-color: red;
+}
+#green{
+    background-color: green;
+}
+.actionsIcon{
+    fill: red;
+    transform: scale(1.2);
+}
+.actionsColor{
+    transform: scale(1.2);
+}
