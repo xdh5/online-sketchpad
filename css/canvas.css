@@ -10,12 +10,19 @@ canvas{
     top: 0;
     left: 0;
 }
+.clearfix::after{
+    content: " ";
+    display: block;
+    clear: both;
+}
 .icon {
-    width: 1.5em; height: 1.5em;
+    width: 1.2em; height: 1.2em;
     vertical-align: -0.15em;
-    fill: currentColor;
+    fill: black;
     overflow: hidden;
-    margin: 10px;
+    margin: 15px;
+    float:left;
+    cursor: pointer;
 }
 .actions{
     position: fixed;
@@ -24,10 +31,11 @@ canvas{
 }
 .color{
     display: block;
-    height: 2em;
-    width: 2em;
-    margin: 10px;
+    height: 1.2em;
+    width: 1.2em;
+    margin: 15px;
     border-radius: 50%;
+    cursor: pointer;
 }
 #blue{
     background-color: blue;
@@ -37,6 +45,12 @@ canvas{
 }
 #green{
     background-color: green;
+}
+#yellow{
+    background-color: yellow;
+}
+#black{
+    background-color: black;
 }
 .actionsIcon{
     fill: red;
