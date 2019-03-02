@@ -74,9 +74,9 @@ function listenToUser(canvas){
     var using = false
     var lastPoint = {x: undefined, y: undefined}
     if(document.body.ontouchstart !== undefined){
-        canvas.ontouchstart = function(aaa){
-            var x = aaa.touches[0].clientX
-            var y = aaa.touches[0].clientY
+        canvas.ontouchstart = function(event){
+            var x = event.touches[0].clientX
+            var y = event.touches[0].clientY
             using = true
             if(eraser){
                 pen.clearRect(x - 5, y - 5, 20, 20)
@@ -85,9 +85,9 @@ function listenToUser(canvas){
                 lastPoint = {"x": x,"y": y}
             }
         }
-        canvas.ontouchmove = function(aaa) {
-            var x = aaa.touches[0].clientX
-            var y = aaa.touches[0].clientY
+        canvas.ontouchmove = function(event) {
+            var x = event.touches[0].clientX
+            var y = event.touches[0].clientY
             if(!using){
                 return
             }
@@ -105,9 +105,9 @@ function listenToUser(canvas){
         }
     }
     else{
-        canvas.onmousedown = function(aaa){
-            var x = aaa.clientX
-            var y = aaa.clientY
+        canvas.onmousedown = function(event){
+            var x = event.clientX
+            var y = event.clientY
             using = true
             if(eraser){
                 pen.clearRect(x - 5, y - 5, 20, 20)
@@ -116,10 +116,11 @@ function listenToUser(canvas){
                 lastPoint = {"x": x,"y": y}
             }
         }
-        canvas.onmousemove = function(aaa) {
-            aaa.preventDefault();
-            var x = aaa.clientX
-            var y = aaa.clientY
+        canvas.onmousemove = function(event) {
+            event.stopPropagation()
+            event.preventDefault();
+            var x = event.clientX
+            var y = event.clientY
             if(!using){
                 return
             }
