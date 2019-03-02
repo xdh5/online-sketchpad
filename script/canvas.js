@@ -63,7 +63,7 @@ function autoResize(){
 function drawLine(x1, y1, x2, y2) {
     pen.beginPath();
     pen.moveTo(x1, y1) // 起点
-    pen.lineWidth· = 2
+    pen.lineWidth = 2
     pen.lineTo(x2, y2) // 终点
     pen.stroke()
     pen.closePath()
@@ -117,6 +117,7 @@ function listenToUser(canvas){
             }
         }
         canvas.onmousemove = function(aaa) {
+            aaa.preventDefault();
             var x = aaa.clientX
             var y = aaa.clientY
             if(!using){
@@ -130,8 +131,6 @@ function listenToUser(canvas){
                 drawLine(lastPoint.x, lastPoint.y ,newPoint.x ,newPoint.y)
                 lastPoint = newPoint
             }
-            aaa.preventDefault ? aaa.preventDefault() : null;
-
         }
         canvas.onmouseup = function(){
             using = false
