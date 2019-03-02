@@ -130,7 +130,8 @@ function listenToUser(canvas){
                 drawLine(lastPoint.x, lastPoint.y ,newPoint.x ,newPoint.y)
                 lastPoint = newPoint
             }
-            aaa.preventDefault()
+            aaa.preventDefault ? aaa.preventDefault() : null;
+
         }
         canvas.onmouseup = function(){
             using = false
