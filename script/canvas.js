@@ -1,6 +1,17 @@
 var canvas = document.querySelector("canvas")
 var pen = canvas.getContext("2d")
+var width = document.documentElement.clientWidth
+var height = document.documentElement.clientHeight
 var eraser = false
+
+//执行函数
+autoResize()
+listenToUser(canvas)
+changeColor()
+
+pen.fillStyle = "white"
+pen.strokeStyle = "white"
+pen.fillRect(0,0,width,height)
 
 document.querySelector("#pen").onclick = function(){
     eraser = false
@@ -13,7 +24,14 @@ document.querySelector("#eraser").onclick = function(){
     document.querySelector("#pen").classList.remove("actionsIcon")
 }
 document.querySelector("#delete").onclick = function(){
-    pen.clearRect(0, 0, document.documentElement.clientWidth, document.documentElement.clientHeight);
+    pen.clearRect(0, 0, width, height);
+    pen.fillStyle = "white"
+    pen.strokeStyle = "white"
+    pen.fillRect(0,0,width,height)
+    var icon = document.querySelector(".actionsIcon")
+    icon.classList.remove("actionsIcon")
+    var color = document.querySelector(".actionsColor")
+    color.classList.remove("actionsColor")
 }
 document.querySelector("#download").onclick = function(){
     var url = canvas.toDataURL("image/png")
@@ -40,15 +58,10 @@ function changeColor(){
     }
 }
 
-//执行函数
-autoResize()
-listenToUser(canvas)
-changeColor()
-
 //设置画布大小为屏幕大小
 function setCanvasSize(canvas) {
-    canvas.width = document.documentElement.clientWidth
-    canvas.height = document.documentElement.clientHeight
+    canvas.width = width
+    canvas.height = height
 }
 
 //跟随屏幕大小调整画布

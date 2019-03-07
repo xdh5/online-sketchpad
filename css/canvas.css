@@ -15,6 +15,11 @@ canvas{
     display: block;
     clear: both;
 }
+.selectIcon{
+    position: fixed;
+    top: 5px;
+    left: 5px;
+}
 .icon {
     width: 1.2em; height: 1.2em;
     vertical-align: -0.15em;
@@ -24,9 +29,9 @@ canvas{
     float:left;
     cursor: pointer;
 }
-.actions{
+.selectColor{
     position: fixed;
-    top: 5px;
+    top: 50px;
     left: 5px;
 }
 .color{
